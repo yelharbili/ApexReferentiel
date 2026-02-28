@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- 1. Création initiale (exécuté une seule fois chez le client) -->
+    <include file="tables/01_creer_table_client.sql" relativeToChangelogFile="true"/>
+    
+    <!-- 2. Évolution V2 (exécuté la prochaine fois que vous déployez) -->
+    <include file="tables/02_ajouter_colonne_statut.sql" relativeToChangelogFile="true"/>
+    
+    <!-- 3. Code métier (Recompilé à chaque modification détectée par Liquibase) -->
+    <!-- runOnChange="true" est la clé ici pour les packages, vues, fonctions -->
+    <changeSet id="pkg_gestion_client" author="dev1" runOnChange="true">
+        <sqlFile path="packages/pkg_gestion_client.sql" relativeToChangelogFile="true" endDelimiter="/\s*$" dbms="oracle"/>
+    </changeSet>
+
+</databaseChangeLog>

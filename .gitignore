@@ -1,0 +1,11 @@
+# Ignore Apex export temp files
+apex/*.log
+apex/temp/
+
+# Ignore custom DB credentials config files (if any in future)
+config/local_env.bat
+config/*.properties
+
+# Ignore MacOS/Windows system files
+.DS_Store
+Thumbs.db
